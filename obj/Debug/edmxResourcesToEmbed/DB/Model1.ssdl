@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище PartnersDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Contracts">
+    <Key>
+      <PropertyRef Name="cont_id" />
+    </Key>
+    <Property Name="cont_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="part_id" Type="int" />
+    <Property Name="cont_name" Type="varchar" MaxLength="70" />
+    <Property Name="cont_date" Type="date" />
+    <Property Name="cont_deadline" Type="date" />
+    <Property Name="st_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Description">
+    <Key>
+      <PropertyRef Name="desc_id" />
+    </Key>
+    <Property Name="desc_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cont_id" Type="int" />
+    <Property Name="descript" Type="varchar" MaxLength="1500" />
+  </EntityType>
+  <EntityType Name="Partners">
+    <Key>
+      <PropertyRef Name="part_id" />
+    </Key>
+    <Property Name="part_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="part_name" Type="varchar" MaxLength="30" />
+    <Property Name="part_contact" Type="varchar" MaxLength="70" />
+    <Property Name="email" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Statuses">
+    <Key>
+      <PropertyRef Name="st_id" />
+    </Key>
+    <Property Name="st_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="st_name" Type="varchar" MaxLength="8" />
+  </EntityType>
+  <Association Name="FK__Contracts__part___4D94879B">
+    <End Role="Partners" Type="Self.Partners" Multiplicity="0..1" />
+    <End Role="Contracts" Type="Self.Contracts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Partners">
+        <PropertyRef Name="part_id" />
+      </Principal>
+      <Dependent Role="Contracts">
+        <PropertyRef Name="part_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contracts__st_id__4E88ABD4">
+    <End Role="Statuses" Type="Self.Statuses" Multiplicity="0..1" />
+    <End Role="Contracts" Type="Self.Contracts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Statuses">
+        <PropertyRef Name="st_id" />
+      </Principal>
+      <Dependent Role="Contracts">
+        <PropertyRef Name="st_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Descripti__cont___5165187F">
+    <End Role="Contracts" Type="Self.Contracts" Multiplicity="0..1" />
+    <End Role="Description" Type="Self.Description" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contracts">
+        <PropertyRef Name="cont_id" />
+      </Principal>
+      <Dependent Role="Description">
+        <PropertyRef Name="cont_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище PartnersDBModelContainer">
+    <EntitySet Name="Contracts" EntityType="Self.Contracts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Description" EntityType="Self.Description" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Partners" EntityType="Self.Partners" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Statuses" EntityType="Self.Statuses" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Contracts__part___4D94879B" Association="Self.FK__Contracts__part___4D94879B">
+      <End Role="Partners" EntitySet="Partners" />
+      <End Role="Contracts" EntitySet="Contracts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contracts__st_id__4E88ABD4" Association="Self.FK__Contracts__st_id__4E88ABD4">
+      <End Role="Statuses" EntitySet="Statuses" />
+      <End Role="Contracts" EntitySet="Contracts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Descripti__cont___5165187F" Association="Self.FK__Descripti__cont___5165187F">
+      <End Role="Contracts" EntitySet="Contracts" />
+      <End Role="Description" EntitySet="Description" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

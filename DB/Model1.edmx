@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище PartnersDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Contracts">
+          <Key>
+            <PropertyRef Name="cont_id" />
+          </Key>
+          <Property Name="cont_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="part_id" Type="int" />
+          <Property Name="cont_name" Type="varchar" MaxLength="70" />
+          <Property Name="cont_date" Type="date" />
+          <Property Name="cont_deadline" Type="date" />
+          <Property Name="st_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Description">
+          <Key>
+            <PropertyRef Name="desc_id" />
+          </Key>
+          <Property Name="desc_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cont_id" Type="int" />
+          <Property Name="descript" Type="varchar" MaxLength="1500" />
+        </EntityType>
+        <EntityType Name="Partners">
+          <Key>
+            <PropertyRef Name="part_id" />
+          </Key>
+          <Property Name="part_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="part_name" Type="varchar" MaxLength="30" />
+          <Property Name="part_contact" Type="varchar" MaxLength="70" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Statuses">
+          <Key>
+            <PropertyRef Name="st_id" />
+          </Key>
+          <Property Name="st_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="st_name" Type="varchar" MaxLength="8" />
+        </EntityType>
+        <Association Name="FK__Contracts__part___4D94879B">
+          <End Role="Partners" Type="Self.Partners" Multiplicity="0..1" />
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partners">
+              <PropertyRef Name="part_id" />
+            </Principal>
+            <Dependent Role="Contracts">
+              <PropertyRef Name="part_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contracts__st_id__4E88ABD4">
+          <End Role="Statuses" Type="Self.Statuses" Multiplicity="0..1" />
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuses">
+              <PropertyRef Name="st_id" />
+            </Principal>
+            <Dependent Role="Contracts">
+              <PropertyRef Name="st_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Descripti__cont___5165187F">
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="0..1" />
+          <End Role="Description" Type="Self.Description" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contracts">
+              <PropertyRef Name="cont_id" />
+            </Principal>
+            <Dependent Role="Description">
+              <PropertyRef Name="cont_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище PartnersDBModelContainer">
+          <EntitySet Name="Contracts" EntityType="Self.Contracts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Description" EntityType="Self.Description" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Partners" EntityType="Self.Partners" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Statuses" EntityType="Self.Statuses" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Contracts__part___4D94879B" Association="Self.FK__Contracts__part___4D94879B">
+            <End Role="Partners" EntitySet="Partners" />
+            <End Role="Contracts" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contracts__st_id__4E88ABD4" Association="Self.FK__Contracts__st_id__4E88ABD4">
+            <End Role="Statuses" EntitySet="Statuses" />
+            <End Role="Contracts" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Descripti__cont___5165187F" Association="Self.FK__Descripti__cont___5165187F">
+            <End Role="Contracts" EntitySet="Contracts" />
+            <End Role="Description" EntitySet="Description" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PartnersDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Contracts">
+          <Key>
+            <PropertyRef Name="cont_id" />
+          </Key>
+          <Property Name="cont_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="part_id" Type="Int32" />
+          <Property Name="cont_name" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="cont_date" Type="DateTime" Precision="0" />
+          <Property Name="cont_deadline" Type="DateTime" Precision="0" />
+          <Property Name="st_id" Type="Int32" />
+          <NavigationProperty Name="Partners" Relationship="Self.FK__Contracts__part___4D94879B" FromRole="Contracts" ToRole="Partners" />
+          <NavigationProperty Name="Statuses" Relationship="Self.FK__Contracts__st_id__4E88ABD4" FromRole="Contracts" ToRole="Statuses" />
+          <NavigationProperty Name="Description" Relationship="Self.FK__Descripti__cont___5165187F" FromRole="Contracts" ToRole="Description" />
+        </EntityType>
+        <EntityType Name="Description">
+          <Key>
+            <PropertyRef Name="desc_id" />
+          </Key>
+          <Property Name="desc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cont_id" Type="Int32" />
+          <Property Name="descript" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Contracts" Relationship="Self.FK__Descripti__cont___5165187F" FromRole="Description" ToRole="Contracts" />
+        </EntityType>
+        <EntityType Name="Partners">
+          <Key>
+            <PropertyRef Name="part_id" />
+          </Key>
+          <Property Name="part_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="part_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="part_contact" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Contracts" Relationship="Self.FK__Contracts__part___4D94879B" FromRole="Partners" ToRole="Contracts" />
+        </EntityType>
+        <EntityType Name="Statuses">
+          <Key>
+            <PropertyRef Name="st_id" />
+          </Key>
+          <Property Name="st_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="st_name" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Contracts" Relationship="Self.FK__Contracts__st_id__4E88ABD4" FromRole="Statuses" ToRole="Contracts" />
+        </EntityType>
+        <Association Name="FK__Contracts__part___4D94879B">
+          <End Role="Partners" Type="Self.Partners" Multiplicity="0..1" />
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partners">
+              <PropertyRef Name="part_id" />
+            </Principal>
+            <Dependent Role="Contracts">
+              <PropertyRef Name="part_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contracts__st_id__4E88ABD4">
+          <End Role="Statuses" Type="Self.Statuses" Multiplicity="0..1" />
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuses">
+              <PropertyRef Name="st_id" />
+            </Principal>
+            <Dependent Role="Contracts">
+              <PropertyRef Name="st_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Descripti__cont___5165187F">
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="0..1" />
+          <End Role="Description" Type="Self.Description" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contracts">
+              <PropertyRef Name="cont_id" />
+            </Principal>
+            <Dependent Role="Description">
+              <PropertyRef Name="cont_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PartnersDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Contracts" EntityType="Self.Contracts" />
+          <EntitySet Name="Description" EntityType="Self.Description" />
+          <EntitySet Name="Partners" EntityType="Self.Partners" />
+          <EntitySet Name="Statuses" EntityType="Self.Statuses" />
+          <AssociationSet Name="FK__Contracts__part___4D94879B" Association="Self.FK__Contracts__part___4D94879B">
+            <End Role="Partners" EntitySet="Partners" />
+            <End Role="Contracts" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contracts__st_id__4E88ABD4" Association="Self.FK__Contracts__st_id__4E88ABD4">
+            <End Role="Statuses" EntitySet="Statuses" />
+            <End Role="Contracts" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Descripti__cont___5165187F" Association="Self.FK__Descripti__cont___5165187F">
+            <End Role="Contracts" EntitySet="Contracts" />
+            <End Role="Description" EntitySet="Description" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище PartnersDBModelContainer" CdmEntityContainer="PartnersDBEntities">
+          <EntitySetMapping Name="Contracts">
+            <EntityTypeMapping TypeName="PartnersDBModel.Contracts">
+              <MappingFragment StoreEntitySet="Contracts">
+                <ScalarProperty Name="cont_id" ColumnName="cont_id" />
+                <ScalarProperty Name="part_id" ColumnName="part_id" />
+                <ScalarProperty Name="cont_name" ColumnName="cont_name" />
+                <ScalarProperty Name="cont_date" ColumnName="cont_date" />
+                <ScalarProperty Name="cont_deadline" ColumnName="cont_deadline" />
+                <ScalarProperty Name="st_id" ColumnName="st_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Description">
+            <EntityTypeMapping TypeName="PartnersDBModel.Description">
+              <MappingFragment StoreEntitySet="Description">
+                <ScalarProperty Name="desc_id" ColumnName="desc_id" />
+                <ScalarProperty Name="cont_id" ColumnName="cont_id" />
+                <ScalarProperty Name="descript" ColumnName="descript" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Partners">
+            <EntityTypeMapping TypeName="PartnersDBModel.Partners">
+              <MappingFragment StoreEntitySet="Partners">
+                <ScalarProperty Name="part_id" ColumnName="part_id" />
+                <ScalarProperty Name="part_name" ColumnName="part_name" />
+                <ScalarProperty Name="part_contact" ColumnName="part_contact" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Statuses">
+            <EntityTypeMapping TypeName="PartnersDBModel.Statuses">
+              <MappingFragment StoreEntitySet="Statuses">
+                <ScalarProperty Name="st_id" ColumnName="st_id" />
+                <ScalarProperty Name="st_name" ColumnName="st_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

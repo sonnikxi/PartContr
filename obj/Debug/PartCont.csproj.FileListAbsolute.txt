@@ -23,3 +23,10 @@ C:\Users\ideapad\source\repos\PartCont\PartCont\obj\Debug\PAdd.g.cs
 C:\Users\ideapad\source\repos\PartCont\PartCont\obj\Debug\PAdd.baml
 C:\Users\ideapad\source\repos\PartCont\PartCont\obj\Debug\Description.g.cs
 C:\Users\ideapad\source\repos\PartCont\PartCont\obj\Debug\Description.baml
+C:\Users\ideapad\source\repos\PartCont\PartCont\bin\Debug\EntityFramework.dll
+C:\Users\ideapad\source\repos\PartCont\PartCont\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ideapad\source\repos\PartCont\PartCont\bin\Debug\EntityFramework.xml
+C:\Users\ideapad\source\repos\PartCont\PartCont\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ideapad\source\repos\PartCont\PartCont\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\ideapad\source\repos\PartCont\PartCont\obj\Debug\PartCont_Content.g.cs
+C:\Users\ideapad\source\repos\PartCont\PartCont\obj\Debug\PartCont.csproj.Up2Date
