@@ -1,0 +1,30 @@
+﻿<Window x:Class="PartCont.CAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PartCont"
+        mc:Ignorable="d"
+        Title="Добавление контракта" Height="400" Width="600">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+
+            <Label HorizontalAlignment="Center" FontSize="20">Заполните поля для добавления</Label>
+            
+            <Label Margin="0" FontSize="16">Партнёр:</Label>
+            <ComboBox x:Name="partChoose" FontSize="18" ></ComboBox>
+
+            <Label Margin="0" FontSize="16">Наименование:</Label>
+            <TextBox x:Name="contName" FontSize="18" Width="400" ></TextBox>
+
+            <Label Margin="0" FontSize="16">Дата заключения:</Label>
+            <DatePicker x:Name="contDate" FontSize="16"></DatePicker>
+
+            <Label Margin="0" FontSize="16">Дедлайн:</Label>
+            <DatePicker x:Name="contDeadline" FontSize="16" ></DatePicker>
+
+            <Button Margin="0,20,0,0" Width="200" FontSize="16">Добавить</Button>
+        </StackPanel>
+
+    </Grid>
+</Window>

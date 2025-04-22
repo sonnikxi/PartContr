@@ -1,0 +1,15 @@
+﻿<Window x:Class="PartCont.Contracts"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PartCont"
+        mc:Ignorable="d"
+        Title="Contracts" Height="700" Width="1100">
+    <Grid>
+        <DataGrid VerticalAlignment="Top" Height="580" Width="1000" Margin="10"></DataGrid>
+        <Button x:Name="Cedit" FontSize="20" Margin="120,600,0,0" Height="35" Width="200" HorizontalAlignment="Left">Изменить</Button>
+        <Button x:Name="Desc" FontSize="20" Margin="450,600,0,0" Height="35" Width="200" HorizontalAlignment="Left" Click="Desc_Click">Описание</Button>
+        <Button x:Name="Cdelete" FontSize="20" Margin="0,600,120,0" Height="35" Width="200" HorizontalAlignment="Right">Удалить</Button>
+    </Grid>
+</Window>

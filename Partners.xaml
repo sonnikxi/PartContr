@@ -1,0 +1,14 @@
+﻿<Window x:Class="PartCont.Partners"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PartCont"
+        mc:Ignorable="d"
+        Title="Партнёры" Height="700" Width="1100">
+    <Grid>
+        <DataGrid VerticalAlignment="Top" Height="580" Width="1000" Margin="10"></DataGrid>
+        <Button x:Name="Pedit" FontSize="20" Margin="150,600,0,0" Height="35" Width="230" HorizontalAlignment="Left">Изменить</Button>
+        <Button x:Name="Pdelete" FontSize="20" Margin="0,600,150,0" Height="35" Width="230" HorizontalAlignment="Right">Удалить</Button>
+    </Grid>
+</Window>

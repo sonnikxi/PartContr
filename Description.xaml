@@ -1,0 +1,15 @@
+﻿<Window x:Class="PartCont.Description"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PartCont"
+        mc:Ignorable="d"
+        Title="Description" Height="450" Width="700">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label x:Name="contName" HorizontalAlignment="Center" FontSize="20" Margin="0,0,0,20">Наименование контракта</Label>
+            <TextBlock x:Name="Text" Width="500" Height="250" FontSize="16">  </TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

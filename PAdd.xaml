@@ -1,0 +1,26 @@
+﻿<Window x:Class="PartCont.PAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PartCont"
+        mc:Ignorable="d"
+        Title="Добавление партнёра" Height="400" Width="550">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+
+            <Label HorizontalAlignment="Center" FontSize="20">Заполните поля для добавления</Label>
+
+            <Label Margin="0" FontSize="16">Название компании:</Label>
+            <TextBox x:Name="partName" FontSize="18" Width="400" ></TextBox>
+
+            <Label Margin="0" FontSize="16">ФИО представителя:</Label>
+            <TextBox x:Name="partContact" FontSize="18" Width="400" ></TextBox>
+
+            <Label Margin="0" FontSize="16">Адрес эл. почты:</Label>
+            <TextBox x:Name="partEmail" FontSize="18" Width="400" ></TextBox>
+            
+            <Button Margin="0,20,0,0" Width="200" FontSize="16">Добавить</Button>
+        </StackPanel>
+    </Grid>
+</Window>
