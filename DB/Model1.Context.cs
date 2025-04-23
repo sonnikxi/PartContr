@@ -13,23 +13,22 @@ namespace PartCont.DB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PartnersDBEntities : DbContext
+    public partial class PartnersDBEntities1 : DbContext
     {
 
-        public static PartnersDBEntities _context;
-        public PartnersDBEntities()
-            : base("name=PartnersDBEntities")
+        public static PartnersDBEntities1 _context;
+
+        public PartnersDBEntities1()
+            : base("name=PartnersDBEntities1")
         {
         }
 
-        public static PartnersDBEntities GetContext()
+        public static PartnersDBEntities1 GetContext()
         {
-            if (_context == null)
-                _context = new PartnersDBEntities();
-
+            if (_context == null)  
+                _context = new PartnersDBEntities1();
             return _context;
         }
-    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

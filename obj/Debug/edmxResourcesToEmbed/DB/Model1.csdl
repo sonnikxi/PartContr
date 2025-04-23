@@ -77,7 +77,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="PartnersDBEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="PartnersDBEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Contracts" EntityType="Self.Contracts" />
     <EntitySet Name="Description" EntityType="Self.Description" />
     <EntitySet Name="Partners" EntityType="Self.Partners" />

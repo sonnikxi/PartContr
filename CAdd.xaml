@@ -23,7 +23,7 @@
             <Label Margin="0" FontSize="16">Дедлайн:</Label>
             <DatePicker x:Name="contDeadline" FontSize="16" ></DatePicker>
 
-            <Button Margin="0,20,0,0" Width="200" FontSize="16">Добавить</Button>
+            <Button Margin="0,20,0,0" Width="200" FontSize="16" Click="Button_Click">Добавить</Button>
         </StackPanel>
 
     </Grid>

@@ -20,7 +20,7 @@
             <Label Margin="0" FontSize="16">Адрес эл. почты:</Label>
             <TextBox x:Name="partEmail" FontSize="18" Width="400" ></TextBox>
             
-            <Button Margin="0,20,0,0" Width="200" FontSize="16">Добавить</Button>
+            <Button Margin="0,20,0,0" Width="200" FontSize="16" Click="Button_Click">Добавить</Button>
         </StackPanel>
     </Grid>
 </Window>

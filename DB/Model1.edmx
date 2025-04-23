@@ -176,7 +176,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PartnersDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="PartnersDBEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Contracts" EntityType="Self.Contracts" />
           <EntitySet Name="Description" EntityType="Self.Description" />
           <EntitySet Name="Partners" EntityType="Self.Partners" />
@@ -199,7 +199,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище PartnersDBModelContainer" CdmEntityContainer="PartnersDBEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище PartnersDBModelContainer" CdmEntityContainer="PartnersDBEntities1">
           <EntitySetMapping Name="Contracts">
             <EntityTypeMapping TypeName="PartnersDBModel.Contracts">
               <MappingFragment StoreEntitySet="Contracts">
