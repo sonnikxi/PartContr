@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,12 +23,73 @@ namespace PartCont
         public CAdd()
         {
             InitializeComponent();
+            AddComboBox();
         }
 
+        private bool Check()
+        {
+            string part_name = partChoose.Text;
+            string cont_name = contName.Text;
+            DateTime? cont_date = contDate.SelectedDate;
+            DateTime? cont_deadline = contDeadline.SelectedDate;
+
+            if (string.IsNullOrEmpty(part_name))
+            {
+                MessageBox.Show("Пожалуйста, заполните все поля (Партнёр).");
+                return false;
+            }
+            else if (string.IsNullOrEmpty(cont_name))
+            {
+                MessageBox.Show("Пожалуйста, заполните все поля (Наименование).");
+                return false;
+            }
+            else if (!cont_date.HasValue)
+            {
+                MessageBox.Show("Пожалуйста, заполните все поля (Дата составления).");
+                return false;
+            }
+            else if (!cont_deadline.HasValue)
+            {
+                MessageBox.Show("Пожалуйста, заполните все поля (Дедлайн).");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private void AddComboBox()
+        {
+            var partnerNames = DB.PartnersDBEntities1.GetContext().Partners.Select(p => p.part_name).ToList();
+            partChoose.ItemsSource = partnerNames;
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                if (Check())
+                {
+                    string partner = partChoose.Text;
+                    int part_id = DB.PartnersDBEntities1.GetContext().Partners.Where(p => p.part_name == partner).Select(p => p.part_id).FirstOrDefault();
 
+                    DB.Contracts contract = new DB.Contracts()
+                    {
+                        part_id = part_id,
+                        cont_name = contName.Text,
+                        cont_date = contDate.SelectedDate.Value,
+                        cont_deadline = contDeadline.SelectedDate.Value,
+                        st_id = 1
+                    };
+
+                    DB.PartnersDBEntities1.GetContext().Contracts.Add(contract);
+                    DB.PartnersDBEntities1.GetContext().SaveChanges();
+                    MessageBox.Show("Запись успешно добавлена");
+                }
+            }
+            catch (Exception ex)
+            { MessageBox.Show("Возникла ошибка" + ex); }
         }
     }
 }

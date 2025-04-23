@@ -22,12 +22,49 @@ namespace PartCont
         public Contracts()
         {
             InitializeComponent();
+            Fill();
+        }
+
+        public void Fill()
+        {
+            Contdata.ItemsSource = DB.PartnersDBEntities1.GetContext().Contracts.ToList();
         }
 
         private void Desc_Click(object sender, RoutedEventArgs e)
         {
             Description description = new Description();
             description.ShowDialog();
+        }
+
+        private void Cedit_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var deletedContract = Contdata.SelectedItem as DB.Contracts;
+                Info.ContID = deletedContract;
+                
+                CEdit cEdit = new CEdit();
+                cEdit.ShowDialog();
+                DB.PartnersDBEntities1.GetContext().Contracts.Remove(deletedContract);
+                DB.PartnersDBEntities1.GetContext().SaveChanges();
+                Fill();
+            }
+            catch (Exception ex)
+            { MessageBox.Show("Возникла ошибка" + ex); }
+        }
+
+        private void Cdelete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var deletedContract = Contdata.SelectedItem as DB.Contracts;
+                DB.PartnersDBEntities1.GetContext().Contracts.Remove(deletedContract);
+                DB.PartnersDBEntities1.GetContext().SaveChanges();
+                Fill();
+
+            }
+            catch (Exception ex)
+            { MessageBox.Show("Возникла ошибка" + ex); }
         }
     }
 }

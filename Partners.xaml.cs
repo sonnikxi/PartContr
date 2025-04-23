@@ -22,6 +22,43 @@ namespace PartCont
         public Partners()
         {
             InitializeComponent();
+            Fill();
+        }
+        public void Fill()
+        {
+            Partdata.ItemsSource = DB.PartnersDBEntities1.GetContext().Partners.ToList();
+        }
+
+        private void Pdelete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var deletedPartner = Partdata.SelectedItem as DB.Partners;
+
+                DB.PartnersDBEntities1.GetContext().Partners.Remove(deletedPartner);
+                DB.PartnersDBEntities1.GetContext().SaveChanges();
+                Fill();
+
+            }
+            catch (Exception ex)
+            { MessageBox.Show("Возникла ошибка" + ex); }
+        }
+
+        private void Pedit_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var deletedPartner = Partdata.SelectedItem as DB.Partners;
+                Info.PartID = deletedPartner;
+
+                CEdit cEdit = new CEdit();
+                cEdit.ShowDialog();
+                DB.PartnersDBEntities1.GetContext().Contracts.Remove(deletedPartner);
+                DB.PartnersDBEntities1.GetContext().SaveChanges();
+                Fill();
+            }
+            catch (Exception ex)
+            { MessageBox.Show("Возникла ошибка" + ex); }
         }
     }
 }
