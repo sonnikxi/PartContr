@@ -25,18 +25,33 @@ namespace PartCont
             FillAll();
         }
 
-        private void FillALl()
+        private void FillAll()
         {
-            string partnerName = DB.PartnersDBEntities1.GetContext().Partners.Where(p => p.part_id == Info.ContID.part_id).Select(p => p.part_name).FirstOrDefault();
+            partName.Text = Info.PartID.part_name;
+            partContact.Text = Info.PartID.part_contact;
+            partEmail.Text = Info.PartID.email;
 
-            partChoose.SelectedItem = DB.PartnersDBEntities1.GetContext().Partners.Where(p => p.part_id == Info.ContID.part_id).Select(p => p.part_name).FirstOrDefault();
-            contName.Text = Info.ContID.cont_name;
-            contDate.SelectedDate = Info.ContID.cont_date;
-            contDeadline.SelectedDate = Info.ContID.cont_deadline;
+
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Editing_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                
+                DB.Partners partner = new DB.Partners()
+                {
+                    part_name = partName.Text,
+                    part_contact = partContact.Text,
+                    email = partEmail.Text
+                };
+
+                DB.PartnersDBEntities1.GetContext().Partners.Add(partner);
+                DB.PartnersDBEntities1.GetContext().SaveChanges();
+                MessageBox.Show("Была добавлена новая запись с новыми значениями");
+            }
+            catch (Exception ex)
+            { MessageBox.Show("Возникла ошибка" + ex); }
 
         }
     }

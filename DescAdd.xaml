@@ -1,0 +1,16 @@
+﻿<Window x:Class="PartCont.DescAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PartCont"
+        mc:Ignorable="d"
+        Title="DescAdd" Height="650" Width="800">
+    <Grid>
+        <StackPanel>
+            <Label FontSize="20" Margin="0,20,0,10"  HorizontalAlignment="Center">Напишите описание</Label>
+            <RichTextBox x:Name="Desc"  Width="700" Height="450" FontSize="17"> </RichTextBox>
+            <Button x:Name="DescAdding" Width="200" FontSize="18" Margin="0,30,0,0" Click="DescAdding_Click"> Добавить</Button>
+        </StackPanel>
+    </Grid>
+</Window>

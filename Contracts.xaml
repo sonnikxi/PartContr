@@ -18,7 +18,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="Cedit" FontSize="20" Margin="120,600,0,0" Height="35" Width="200" HorizontalAlignment="Left" Click="Cedit_Click">Изменить</Button>
-        <!--<Button x:Name="Desc" FontSize="20" Margin="450,600,0,0" Height="35" Width="200" HorizontalAlignment="Left" Click="Desc_Click">Описание</Button>-->
+        <Button x:Name="Desc" FontSize="20" Margin="450,600,0,0" Height="35" Width="200" HorizontalAlignment="Left" Click="Desc_Click">Описание</Button>
         <Button x:Name="Cdelete" FontSize="20" Margin="0,600,120,0" Height="35" Width="200" HorizontalAlignment="Right" Click="Cdelete_Click">Удалить</Button>
     </Grid>
 </Window>

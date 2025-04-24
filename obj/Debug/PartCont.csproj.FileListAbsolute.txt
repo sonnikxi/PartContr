@@ -32,3 +32,7 @@ C:\Users\ideapad\source\repos\PartCont\PartCont\obj\Debug\PartCont_Content.g.cs
 C:\Users\ideapad\source\repos\PartCont\PartCont\obj\Debug\PartCont.csproj.Up2Date
 C:\Users\ideapad\source\repos\PartCont\PartCont\obj\Debug\CEdit.g.cs
 C:\Users\ideapad\source\repos\PartCont\PartCont\obj\Debug\CEdit.baml
+C:\Users\ideapad\source\repos\PartCont\PartCont\obj\Debug\PEdit.g.cs
+C:\Users\ideapad\source\repos\PartCont\PartCont\obj\Debug\PEdit.baml
+C:\Users\ideapad\source\repos\PartCont\PartCont\obj\Debug\DescAdd.g.cs
+C:\Users\ideapad\source\repos\PartCont\PartCont\obj\Debug\DescAdd.baml

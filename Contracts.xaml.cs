@@ -32,6 +32,9 @@ namespace PartCont
 
         private void Desc_Click(object sender, RoutedEventArgs e)
         {
+            var deletedContract = Contdata.SelectedItem as DB.Contracts;
+            int ID = deletedContract.cont_id;
+            Info.ContDescLook = ID;
             Description description = new Description();
             description.ShowDialog();
         }

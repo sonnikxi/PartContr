@@ -85,7 +85,17 @@ namespace PartCont
 
                     DB.PartnersDBEntities1.GetContext().Contracts.Add(contract);
                     DB.PartnersDBEntities1.GetContext().SaveChanges();
-                    MessageBox.Show("Запись успешно добавлена");
+
+                    MessageBoxResult result = MessageBox.Show("Запись успешно добавлена. \n Хотите добавить подробное описание контракта?", "Подтверждение",
+                        MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        Info.ContDesc = contract;
+                        DescAdd descAdd = new DescAdd();   
+                        descAdd.ShowDialog();
+                        this.Close();
+                    }
+
                 }
             }
             catch (Exception ex)

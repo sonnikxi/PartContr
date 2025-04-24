@@ -9,6 +9,8 @@ namespace PartCont
     internal class Info
     {
         public static DB.Contracts ContID;
+        public static DB.Contracts ContDesc;
+        public static int ContDescLook;
         public static DB.Partners PartID;
     }
 }

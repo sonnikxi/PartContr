@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PartCont.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,15 @@ namespace PartCont
         public Description()
         {
             InitializeComponent();
+            FillRich();
 
         }
+
+        private void FillRich()
+        {
+            int cont_id = Info.ContDescLook;
+            string desc = DB.PartnersDBEntities1.GetContext().Description.Where(d => d.cont_id == cont_id).Select(d => d.descript).FirstOrDefault();
+            DescText.Text = desc;
+        } 
     }
 }

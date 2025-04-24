@@ -51,9 +51,9 @@ namespace PartCont
                 var deletedPartner = Partdata.SelectedItem as DB.Partners;
                 Info.PartID = deletedPartner;
 
-                CEdit cEdit = new CEdit();
-                cEdit.ShowDialog();
-                DB.PartnersDBEntities1.GetContext().Contracts.Remove(deletedPartner);
+                PEdit pEdit = new PEdit();
+                pEdit.ShowDialog();
+                DB.PartnersDBEntities1.GetContext().Partners.Remove(deletedPartner);
                 DB.PartnersDBEntities1.GetContext().SaveChanges();
                 Fill();
             }

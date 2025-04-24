@@ -7,10 +7,14 @@
         mc:Ignorable="d"
         Title="Партнёры" Height="700" Width="1100">
     <Grid>
-        <DataGrid VerticalAlignment="Top" x:Name="Partdata" Height="580" Width="1000" Margin="10"
-              AutoGenerateColumns="True">
+        <DataGrid VerticalAlignment="Top" x:Name="Partdata" Height="580" Width="1000" Margin="10" FontSize="20"
+              AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <!--<DataGridTextColumn Header="Название" Binding="{Binding NameOfCountry}"></DataGridTextColumn>-->
+                <DataGridTextColumn Width="150" Header="ID партнёра" Binding="{Binding part_id}"/>
+                <DataGridTextColumn Width="250" Header="Название компании" Binding="{Binding part_name}"/>
+                <DataGridTextColumn Width="300" Header="Представитель" Binding="{Binding part_contact}"/>
+                <DataGridTextColumn Width="300" Header="Email" Binding="{Binding email}"/>
+
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="Pedit" FontSize="20" Margin="150,600,0,0" Height="35" Width="230" HorizontalAlignment="Left" Click="Pedit_Click">Изменить</Button>
