@@ -25,10 +25,8 @@ namespace PartCont.DB
         public string cont_name { get; set; }
         public Nullable<System.DateTime> cont_date { get; set; }
         public Nullable<System.DateTime> cont_deadline { get; set; }
-        public Nullable<int> st_id { get; set; }
     
         public virtual Partners Partners { get; set; }
-        public virtual Statuses Statuses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Description> Description { get; set; }
     }

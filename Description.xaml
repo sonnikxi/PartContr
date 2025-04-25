@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PartCont"
         mc:Ignorable="d"
-        Title="Description" Height="650" Width="800">
+        Title="Просмотр описания" Height="650" Width="800">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
             <Label x:Name="contName" HorizontalAlignment="Center" FontSize="20" Margin="0,30,0,0">Описание контракта</Label>

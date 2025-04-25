@@ -29,7 +29,6 @@ namespace PartCont
             string part_name = partName.Text;
             string part_contact = partContact.Text;
             string email = partEmail.Text;
-
             if (string.IsNullOrEmpty(part_name))
             {
                 MessageBox.Show("Пожалуйста, заполните все поля (Название).");
@@ -46,9 +45,8 @@ namespace PartCont
                 return false;
             }
             else
-            {
                 return true;
-            }
+            
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -62,9 +60,8 @@ namespace PartCont
                         part_contact = partContact.Text,
                         email = partEmail.Text
                     };
-
-                    DB.PartnersDBEntities1.GetContext().Partners.Add(partner);
-                    DB.PartnersDBEntities1.GetContext().SaveChanges();
+                    DB.CPartnersDBEntities.GetContext().Partners.Add(partner);
+                    DB.CPartnersDBEntities.GetContext().SaveChanges();
                     MessageBox.Show("Запись успешно добавлена");
                 }
             }

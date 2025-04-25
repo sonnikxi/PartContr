@@ -13,22 +13,22 @@ namespace PartCont.DB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PartnersDBEntities1 : DbContext
+    public partial class CPartnersDBEntities : DbContext
     {
+        public static CPartnersDBEntities _context;
 
-        public static PartnersDBEntities1 _context;
-
-        public PartnersDBEntities1()
+        public CPartnersDBEntities()
             : base("name=PartnersDBEntities1")
         {
         }
 
-        public static PartnersDBEntities1 GetContext()
+        public static CPartnersDBEntities GetContext()
         {
-            if (_context == null)  
-                _context = new PartnersDBEntities1();
+            if (_context == null)
+                _context = new CPartnersDBEntities();
             return _context;
         }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -37,6 +37,5 @@ namespace PartCont.DB
         public virtual DbSet<Contracts> Contracts { get; set; }
         public virtual DbSet<Description> Description { get; set; }
         public virtual DbSet<Partners> Partners { get; set; }
-        public virtual DbSet<Statuses> Statuses { get; set; }
     }
 }

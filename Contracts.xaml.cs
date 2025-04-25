@@ -27,7 +27,7 @@ namespace PartCont
 
         public void Fill()
         {
-            Contdata.ItemsSource = DB.PartnersDBEntities1.GetContext().Contracts.ToList();
+            Contdata.ItemsSource = DB.CPartnersDBEntities.GetContext().Contracts.ToList();
         }
 
         private void Desc_Click(object sender, RoutedEventArgs e)
@@ -48,8 +48,8 @@ namespace PartCont
                 
                 CEdit cEdit = new CEdit();
                 cEdit.ShowDialog();
-                DB.PartnersDBEntities1.GetContext().Contracts.Remove(deletedContract);
-                DB.PartnersDBEntities1.GetContext().SaveChanges();
+                DB.CPartnersDBEntities.GetContext().Contracts.Remove(deletedContract);
+                DB.CPartnersDBEntities.GetContext().SaveChanges();
                 Fill();
             }
             catch (Exception ex)
@@ -61,8 +61,8 @@ namespace PartCont
             try
             {
                 var deletedContract = Contdata.SelectedItem as DB.Contracts;
-                DB.PartnersDBEntities1.GetContext().Contracts.Remove(deletedContract);
-                DB.PartnersDBEntities1.GetContext().SaveChanges();
+                DB.CPartnersDBEntities.GetContext().Contracts.Remove(deletedContract);
+                DB.CPartnersDBEntities.GetContext().SaveChanges();
                 Fill();
 
             }

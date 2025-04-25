@@ -30,7 +30,7 @@ namespace PartCont
         private void FillRich()
         {
             int cont_id = Info.ContDescLook;
-            string desc = DB.PartnersDBEntities1.GetContext().Description.Where(d => d.cont_id == cont_id).Select(d => d.descript).FirstOrDefault();
+            string desc = DB.CPartnersDBEntities.GetContext().Description.Where(d => d.cont_id == cont_id).Select(d => d.descript).FirstOrDefault();
             DescText.Text = desc;
         } 
     }

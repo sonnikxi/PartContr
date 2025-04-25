@@ -17,7 +17,9 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="Pedit" FontSize="20" Margin="150,600,0,0" Height="35" Width="230" HorizontalAlignment="Left" Click="Pedit_Click">Изменить</Button>
-        <Button x:Name="Pdelete" FontSize="20" Margin="0,600,150,0" Height="35" Width="230" HorizontalAlignment="Right" Click="Pdelete_Click">Удалить</Button>
+        <Button x:Name="Pedit" FontSize="20" Margin="150,600,0,0" Height="35" Width="230" HorizontalAlignment="Left"
+                Click="Pedit_Click">Изменить</Button>
+        <Button x:Name="Pdelete" FontSize="20" Margin="0,600,150,0" Height="35" Width="230" HorizontalAlignment="Right"
+                Click="Pdelete_Click">Удалить</Button>
     </Grid>
 </Window>

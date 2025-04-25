@@ -23,39 +23,40 @@ namespace PartCont
         public CEdit()
         {
             InitializeComponent();
-            var partnerNames = DB.PartnersDBEntities1.GetContext().Partners.Select(p => p.part_name).ToList();
+            var partnerNames = DB.CPartnersDBEntities.GetContext().Partners.Select(p => p.part_name)
+                .ToList();
             partChoose.ItemsSource = partnerNames;
             FillAll();
         }
-
         private void FillAll()
         {
-            string partnerName = DB.PartnersDBEntities1.GetContext().Partners.Where(p => p.part_id == Info.ContID.part_id ).Select(p => p.part_name).FirstOrDefault();
+            string partnerName = DB.CPartnersDBEntities.GetContext().Partners.Where(p => p.part_id == Info.ContID.part_id )
+                .Select(p => p.part_name).FirstOrDefault();
 
-            partChoose.SelectedItem = DB.PartnersDBEntities1.GetContext().Partners.Where(p => p.part_id == Info.ContID.part_id).Select(p => p.part_name).FirstOrDefault();
+            partChoose.SelectedItem = DB.CPartnersDBEntities.GetContext().Partners.Where(p => p.part_id == Info.ContID.part_id)
+                .Select(p => p.part_name).FirstOrDefault();
             contName.Text = Info.ContID.cont_name;
             contDate.SelectedDate = Info.ContID.cont_date;
             contDeadline.SelectedDate = Info.ContID.cont_deadline;
         }
-
         private void Editing_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 string partner = partChoose.Text;
-                int part_id = DB.PartnersDBEntities1.GetContext().Partners.Where(p => p.part_name == partner).Select(p => p.part_id).FirstOrDefault();
+                int part_id = DB.CPartnersDBEntities.GetContext().Partners.Where(p => p.part_name == partner).Select(p => p.part_id).
+                    FirstOrDefault();
 
                 DB.Contracts contract = new DB.Contracts()
                 {
                     part_id = part_id,
                     cont_name = contName.Text,
                     cont_date = contDate.SelectedDate.Value,
-                    cont_deadline = contDeadline.SelectedDate.Value,
-                    st_id = 1
+                    cont_deadline = contDeadline.SelectedDate.Value
                 };
 
-                DB.PartnersDBEntities1.GetContext().Contracts.Add(contract);
-                DB.PartnersDBEntities1.GetContext().SaveChanges();
+                DB.CPartnersDBEntities.GetContext().Contracts.Add(contract);
+                DB.CPartnersDBEntities.GetContext().SaveChanges();
                 MessageBox.Show("Была добавлена новая запись с новыми значениями");
             }
             catch (Exception ex)

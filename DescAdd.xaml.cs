@@ -23,14 +23,11 @@ namespace PartCont
         {
             InitializeComponent();
         }
-
-       
         private void DescAdding_Click(object sender, RoutedEventArgs e)
         {
             FlowDocument document = Desc.Document;
             TextRange textRange = new TextRange(document.ContentStart, document.ContentEnd);
             string text = textRange.Text;
-
             try
             {
                 DB.Description description = new DB.Description()
@@ -38,15 +35,12 @@ namespace PartCont
                     cont_id = Info.ContDesc.cont_id,
                     descript = text
                 };
-
-                DB.PartnersDBEntities1.GetContext().Description.Add(description);
-                DB.PartnersDBEntities1.GetContext().SaveChanges();
+                DB.CPartnersDBEntities.GetContext().Description.Add(description);
+                DB.CPartnersDBEntities.GetContext().SaveChanges();
                 MessageBox.Show("Описание добавлено!");
-
             }
             catch (Exception ex)
             { MessageBox.Show("Возникла ошибка" + ex); }
-
         }
     }
 }

@@ -5,20 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PartCont"
         mc:Ignorable="d"
-        Title="Contracts" Height="700" Width="1100">
+        Title="Контракты" Height="700" Width="1100">
     <Grid>
-        <DataGrid VerticalAlignment="Top" x:Name="Contdata" Height="580" Width="1000" Margin="10" FontSize="20"
-                      AutoGenerateColumns="False">
+        <DataGrid VerticalAlignment="Top" x:Name="Contdata" Height="580" Width="1000" Margin="10"
+                  FontSize="20" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn  Width="150"  Header="ID контракта" Binding="{Binding cont_id}"></DataGridTextColumn>
-                <DataGridTextColumn Width="200" Header="Наименование" Binding="{Binding cont_name}"></DataGridTextColumn>
-                <DataGridTextColumn Width="150" Header="ID партнёра" Binding="{Binding part_id}"></DataGridTextColumn>
-                <DataGridTextColumn Width="250" Header="Дата составления" Binding="{Binding cont_date, StringFormat='{}{0:dd.MM.yyyy}'}"/>
-                <DataGridTextColumn Width="250" Header="Дедлайн" Binding="{Binding cont_deadline, StringFormat='{}{0:dd.MM.yyyy}'}"/>
+                <DataGridTextColumn  Width="150"  Header="ID контракта" Binding="{Binding cont_id}"/>
+                <DataGridTextColumn Width="200" Header="Наименование" Binding="{Binding cont_name}"/>
+                <DataGridTextColumn Width="150" Header="ID партнёра" Binding="{Binding part_id}"/>
+                <DataGridTextColumn Width="250" Header="Дата составления" Binding="{Binding cont_date,
+                    StringFormat='{}{0:dd.MM.yyyy}'}"/>
+                <DataGridTextColumn Width="250" Header="Дедлайн" Binding="{Binding cont_deadline,
+                    StringFormat='{}{0:dd.MM.yyyy}'}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="Cedit" FontSize="20" Margin="120,600,0,0" Height="35" Width="200" HorizontalAlignment="Left" Click="Cedit_Click">Изменить</Button>
-        <Button x:Name="Desc" FontSize="20" Margin="450,600,0,0" Height="35" Width="200" HorizontalAlignment="Left" Click="Desc_Click">Описание</Button>
-        <Button x:Name="Cdelete" FontSize="20" Margin="0,600,120,0" Height="35" Width="200" HorizontalAlignment="Right" Click="Cdelete_Click">Удалить</Button>
+        <Button x:Name="Cedit" FontSize="20" Margin="120,600,0,0" Height="35" Width="200"
+                HorizontalAlignment="Left" Click="Cedit_Click">Изменить</Button>
+        <Button x:Name="Desc" FontSize="20" Margin="450,600,0,0" Height="35" Width="200"
+                HorizontalAlignment="Left" Click="Desc_Click">Описание</Button>
+        <Button x:Name="Cdelete" FontSize="20" Margin="0,600,120,0" Height="35" Width="200"
+                HorizontalAlignment="Right" Click="Cdelete_Click">Удалить</Button>
     </Grid>
 </Window>

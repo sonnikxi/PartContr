@@ -1,20 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище PartnersDBModelContainer" CdmEntityContainer="PartnersDBEntities1">
+  <EntityContainerMapping StorageEntityContainer="Хранилище CPartnersDBModelContainer" CdmEntityContainer="CPartnersDBEntities">
     <EntitySetMapping Name="Contracts">
-      <EntityTypeMapping TypeName="PartnersDBModel.Contracts">
+      <EntityTypeMapping TypeName="CPartnersDBModel.Contracts">
         <MappingFragment StoreEntitySet="Contracts">
           <ScalarProperty Name="cont_id" ColumnName="cont_id" />
           <ScalarProperty Name="part_id" ColumnName="part_id" />
           <ScalarProperty Name="cont_name" ColumnName="cont_name" />
           <ScalarProperty Name="cont_date" ColumnName="cont_date" />
           <ScalarProperty Name="cont_deadline" ColumnName="cont_deadline" />
-          <ScalarProperty Name="st_id" ColumnName="st_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Description">
-      <EntityTypeMapping TypeName="PartnersDBModel.Description">
+      <EntityTypeMapping TypeName="CPartnersDBModel.Description">
         <MappingFragment StoreEntitySet="Description">
           <ScalarProperty Name="desc_id" ColumnName="desc_id" />
           <ScalarProperty Name="cont_id" ColumnName="cont_id" />
@@ -23,20 +22,12 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Partners">
-      <EntityTypeMapping TypeName="PartnersDBModel.Partners">
+      <EntityTypeMapping TypeName="CPartnersDBModel.Partners">
         <MappingFragment StoreEntitySet="Partners">
           <ScalarProperty Name="part_id" ColumnName="part_id" />
           <ScalarProperty Name="part_name" ColumnName="part_name" />
           <ScalarProperty Name="part_contact" ColumnName="part_contact" />
           <ScalarProperty Name="email" ColumnName="email" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Statuses">
-      <EntityTypeMapping TypeName="PartnersDBModel.Statuses">
-        <MappingFragment StoreEntitySet="Statuses">
-          <ScalarProperty Name="st_id" ColumnName="st_id" />
-          <ScalarProperty Name="st_name" ColumnName="st_name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

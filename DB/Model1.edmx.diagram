@@ -4,14 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1abd505929e74df48b78040e11292f11" Name="Diagram1">
-        <EntityTypeShape EntityType="PartnersDBModel.Contracts" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="PartnersDBModel.Description" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PartnersDBModel.Partners" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="PartnersDBModel.Statuses" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
-        <AssociationConnector Association="PartnersDBModel.FK__Contracts__part___4D94879B" ManuallyRouted="false" />
-        <AssociationConnector Association="PartnersDBModel.FK__Contracts__st_id__4E88ABD4" ManuallyRouted="false" />
-        <AssociationConnector Association="PartnersDBModel.FK__Descripti__cont___5165187F" ManuallyRouted="false" />
+      <Diagram DiagramId="08f1c019662245c48f69e4d0de2cef21" Name="Diagram1">
+        <EntityTypeShape EntityType="CPartnersDBModel.Contracts" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CPartnersDBModel.Description" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CPartnersDBModel.Partners" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="CPartnersDBModel.FK__Contracts__part___4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="CPartnersDBModel.FK__Descripti__cont___4E88ABD4" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

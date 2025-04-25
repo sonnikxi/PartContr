@@ -26,6 +26,49 @@ namespace PartCont
             AddComboBox();
         }
 
+        
+        private void AddComboBox()
+        {
+            var partnerNames = DB.CPartnersDBEntities.GetContext().Partners.Select(p => p.part_name).ToList();
+            partChoose.ItemsSource = partnerNames;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (Check())
+                {
+                    string partner = partChoose.Text;
+                    int part_id = DB.CPartnersDBEntities.GetContext().Partners.Where(p => p.part_name == partner)
+                        .Select(p => p.part_id).FirstOrDefault();
+
+                    DB.Contracts contract = new DB.Contracts()
+                    {
+                        part_id = part_id,
+                        cont_name = contName.Text,
+                        cont_date = contDate.SelectedDate.Value,
+                        cont_deadline = contDeadline.SelectedDate.Value
+                    };
+
+                    DB.CPartnersDBEntities.GetContext().Contracts.Add(contract);
+                    DB.CPartnersDBEntities.GetContext().SaveChanges();
+
+                    MessageBoxResult result = MessageBox.Show("Запись успешно добавлена. " +
+                        "\nХотите добавить подробное описание контракта?", "Подтверждение",
+                        MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        Info.ContDesc = contract;
+                        DescAdd descAdd = new DescAdd();   
+                        descAdd.ShowDialog();
+                        this.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            { MessageBox.Show("Возникла ошибка" + ex); }
+        }
         private bool Check()
         {
             string part_name = partChoose.Text;
@@ -59,47 +102,5 @@ namespace PartCont
             }
         }
 
-        private void AddComboBox()
-        {
-            var partnerNames = DB.PartnersDBEntities1.GetContext().Partners.Select(p => p.part_name).ToList();
-            partChoose.ItemsSource = partnerNames;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                if (Check())
-                {
-                    string partner = partChoose.Text;
-                    int part_id = DB.PartnersDBEntities1.GetContext().Partners.Where(p => p.part_name == partner).Select(p => p.part_id).FirstOrDefault();
-
-                    DB.Contracts contract = new DB.Contracts()
-                    {
-                        part_id = part_id,
-                        cont_name = contName.Text,
-                        cont_date = contDate.SelectedDate.Value,
-                        cont_deadline = contDeadline.SelectedDate.Value,
-                        st_id = 1
-                    };
-
-                    DB.PartnersDBEntities1.GetContext().Contracts.Add(contract);
-                    DB.PartnersDBEntities1.GetContext().SaveChanges();
-
-                    MessageBoxResult result = MessageBox.Show("Запись успешно добавлена. \n Хотите добавить подробное описание контракта?", "Подтверждение",
-                        MessageBoxButton.YesNo, MessageBoxImage.Question);
-                    if (result == MessageBoxResult.Yes)
-                    {
-                        Info.ContDesc = contract;
-                        DescAdd descAdd = new DescAdd();   
-                        descAdd.ShowDialog();
-                        this.Close();
-                    }
-
-                }
-            }
-            catch (Exception ex)
-            { MessageBox.Show("Возникла ошибка" + ex); }
-        }
     }
 }

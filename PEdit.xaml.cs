@@ -30,29 +30,24 @@ namespace PartCont
             partName.Text = Info.PartID.part_name;
             partContact.Text = Info.PartID.part_contact;
             partEmail.Text = Info.PartID.email;
-
-
         }
 
         private void Editing_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                
                 DB.Partners partner = new DB.Partners()
                 {
                     part_name = partName.Text,
                     part_contact = partContact.Text,
                     email = partEmail.Text
                 };
-
-                DB.PartnersDBEntities1.GetContext().Partners.Add(partner);
-                DB.PartnersDBEntities1.GetContext().SaveChanges();
+                DB.CPartnersDBEntities.GetContext().Partners.Add(partner);
+                DB.CPartnersDBEntities.GetContext().SaveChanges();
                 MessageBox.Show("Была добавлена новая запись с новыми значениями");
             }
             catch (Exception ex)
             { MessageBox.Show("Возникла ошибка" + ex); }
-
         }
     }
 }

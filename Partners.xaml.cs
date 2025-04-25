@@ -26,24 +26,20 @@ namespace PartCont
         }
         public void Fill()
         {
-            Partdata.ItemsSource = DB.PartnersDBEntities1.GetContext().Partners.ToList();
+            Partdata.ItemsSource = DB.CPartnersDBEntities.GetContext().Partners.ToList();
         }
-
         private void Pdelete_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 var deletedPartner = Partdata.SelectedItem as DB.Partners;
-
-                DB.PartnersDBEntities1.GetContext().Partners.Remove(deletedPartner);
-                DB.PartnersDBEntities1.GetContext().SaveChanges();
+                DB.CPartnersDBEntities.GetContext().Partners.Remove(deletedPartner);
+                DB.CPartnersDBEntities.GetContext().SaveChanges();
                 Fill();
-
             }
             catch (Exception ex)
             { MessageBox.Show("Возникла ошибка" + ex); }
         }
-
         private void Pedit_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -53,8 +49,8 @@ namespace PartCont
 
                 PEdit pEdit = new PEdit();
                 pEdit.ShowDialog();
-                DB.PartnersDBEntities1.GetContext().Partners.Remove(deletedPartner);
-                DB.PartnersDBEntities1.GetContext().SaveChanges();
+                DB.CPartnersDBEntities.GetContext().Partners.Remove(deletedPartner);
+                DB.CPartnersDBEntities.GetContext().SaveChanges();
                 Fill();
             }
             catch (Exception ex)
